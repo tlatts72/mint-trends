@@ -55,6 +55,9 @@ coverage.xml
 *.mo
 *.pot
 
+# Sensitive Config Information
+config.py
+
 # Django stuff:
 *.log
 local_settings.py

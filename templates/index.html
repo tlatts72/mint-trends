@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account Balances</title>
+</head>
+<body>
+    <h1>Account Balances</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Account Name</th>
+                <th>Account Type</th>
+                <th>Current Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for balance in balances %}
+            <tr>
+                <td>{{ balance['accountName'] }}</td>
+                <td>{{ balance['accountType'] }}</td>
+                <td>{{ balance['currentBalance'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
