@@ -3,11 +3,10 @@ from config import accounts, totp_secret
 from pymongo import MongoClient
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import pyotp
 
 # Set up Chrome options for headless browsing
 chrome_options = Options()
-chrome_options.add_argument("--headless")
+chrome_options.add_argument("headless=new")
 
 # Create a new Chrome web driver with the headless option
 driver = webdriver.Chrome(options=chrome_options)
@@ -22,8 +21,8 @@ collection = db['account_balances']
 # Loop through each email account and query account balances
 for email, passwd in accounts.items():
     # Get the Authy token
-    token = pyotp.TOTP(totp_secret).now()
-    print(token)
+    # token = pyotp.TOTP(totp_secret).now()
+    # print(token)
 
     # Authenticate with Mint using the Authy token
     mint = mintapi.Mint(
@@ -31,11 +30,12 @@ for email, passwd in accounts.items():
         password=passwd,
         mfa_method="soft-token",
         mfa_token=totp_secret,
-        driver=driver
+        wait_for_sync=False,
+        use_chromedriver_on_path=True
+        # headless=False,
+        # driver=driver
     )
-
-    # Get all account balances
-    balances = mint.get_accounts()
+    balances = mint.get_account_data()
     print(balances)
 
     # Insert the account balances into MongoDB

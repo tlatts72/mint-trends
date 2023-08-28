@@ -14,7 +14,7 @@ app = Flask(__name__)
 def display_balances():
     # Get all documents in the account_balances collection
     balances = list(collection.find())
-    return render_template('balances.html', balances=balances)
+    return render_template('index.html', balances=balances)
 
 # Start the Flask application
 if __name__ == '__main__':
