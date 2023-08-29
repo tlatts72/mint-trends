@@ -20,21 +20,9 @@ collection = db['account_balances']
 
 # Loop through each email account and query account balances
 for email, passwd in accounts.items():
-    # Get the Authy token
-    # token = pyotp.TOTP(totp_secret).now()
-    # print(token)
-
-    # Authenticate with Mint using the Authy token
-    mint = mintapi.Mint(
-        email=email,
-        password=passwd,
-        mfa_method="soft-token",
-        mfa_token=totp_secret,
-        wait_for_sync=False,
-        use_chromedriver_on_path=True
-        # headless=False,
-        # driver=driver
-    )
+    insert = {
+        
+    }
     balances = mint.get_account_data()
     print(balances)
 
