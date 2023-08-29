@@ -12,6 +12,7 @@ Configure your user/password as necessary in db/mongo-docker-compose.yml
 
 Verify MongoDB
 
-
-
+From inside the container, or if mongosh is installed on your local machine, run `mongosh "mongodb://root:example@localhost:27017"`
+1. `Use 
+Run `db.createCollection()
 # Step 2
