@@ -27,10 +27,10 @@ collection = db['accounts']
 
 for each in accounts.items():
    try:
-      print each["User"]
+      print(each["User"])
       db.collection.insertOne(each, session=None, comment=None)
-   except e as EXCEPTION:
-      print "Issue Connecting to the database"
+   except:
+      print("Issue Connecting to the database")
 
 # Close the MongoDB connection
 client.close()
