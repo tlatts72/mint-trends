@@ -4,5 +4,5 @@ accounts = [{"User": "test123@gmail.com",
              "Password": "testPassword",
              "TOTP": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"}
             ]
-# Enter in the mongo user and password that you have configured.
+# Enter the mongo user and password that you have configured.
 mongo_credentials = {"User": "root", "Password": "example"}

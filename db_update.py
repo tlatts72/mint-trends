@@ -12,7 +12,8 @@ chrome_options.add_argument("headless=new")
 driver = webdriver.Chrome(options=chrome_options)
 
 # Connect to MongoDB
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('mongodb://localhost:27017/', username=mongo_credentials["User"],
+                     password=mongo_credentials["Password"])
 db = client['mint_trends']
 
 # Define the collection to insert documents into

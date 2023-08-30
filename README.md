@@ -4,15 +4,26 @@ Connect one or multiple mint accounts into a dashboard to display account balanc
 
 Utilizes mintapi project at https://github.com/mintapi/mintapi
 
+# Project Requirements before initial release
+- Create functional application
+- Dockerize the mongodb solution
+- Dockerize the python flask application
 
-# Step 1
-Initialize MongoDB
+The application initial release will contain a dashboard that shows the latest data for each account, as well as a whitelisting functionality of specific accounts
 
-Configure your user/password as necessary in db/mongo-docker-compose.yml
+# Prerequisites
+- Docker installed
 
-Verify MongoDB
+# First Steps
+1. Initialize MongoDB
 
-From inside the container, or if mongosh is installed on your local machine, run `mongosh "mongodb://root:example@localhost:27017"`
-1. `Use 
-Run `db.createCollection()
-# Step 2
+- Configure your database user/password as necessary in db/mongo-docker-compose.yml
+
+- Run mongo-docker-compose.yml and ensure the instance is running
+
+2. Copy config-example.py to config.py. 
+- Give mint account and database information 
+
+3. Run db/mongo-load-mint-accounts.py to insert the given data from config.py
+
+

@@ -8,7 +8,7 @@ collection = db['mint_account_config']
 
 for each in accounts:
     query = {"User": {"$eq": each["User"]}}
-    result = collection.find_one(query)
+    result = collection.find_one_and_replace(query, replacement=each)
     if result:
         print("User Exists")
     else:
