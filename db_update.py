@@ -1,5 +1,5 @@
 import mintapi
-from config import accounts, totp_secret
+from config import accounts, mongo_credentials
 from pymongo import MongoClient
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -13,7 +13,7 @@ driver = webdriver.Chrome(options=chrome_options)
 
 # Connect to MongoDB
 client = MongoClient('mongodb://localhost:27017/')
-db = client['mm_trends']
+db = client['mint_trends']
 
 # Define the collection to insert documents into
 collection = db['account_balances']
