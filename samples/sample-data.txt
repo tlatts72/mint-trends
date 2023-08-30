@@ -1,0 +1,14 @@
+[
+    {"type": "CreditAccount", "userCardType": "UNKNOWN", "creditAccountType": "CREDIT_CARD", "creditLimit": 100.0, "availableCredit": 50.0, "interestRate": 0.2399, "minPayment": 0.0, "absoluteMinPayment": 0.0, "statementMinPayment": 10.0, "statementDueDate": "2022-04-15T07: 00: 00Z", "statementDueAmount": 0.0, "metaData": {"createdDate": "2017-05-03T06: 03: 58Z", "lastUpdatedDate": "2023-08-24T15: 23: 10Z", "link": [
+                {"otherAttributes": {}, "href": "/v1/accounts/055585855", "rel": "self"
+                }
+            ]
+        }, "id": "508256_516512", "name": "Chase Credit", "value": -100.6, "isVisible": True, "isDeleted": False, "planningTrendsVisible": True, "accountStatus": "CLOSED", "systemStatus": "DEAD", "currency": "USD", "fiLoginId": "sdfsdfsdfsdfd", "fiLoginStatus": "OK", "currentBalance": 0.0, "cpId": "urn:account:fdp: :accountid:12341534534543543", "cpAccountName": "Joint Credit", "cpAccountNumberLast4": "1234", "hostAccount": False, "fiName": "Chase Bank", "accountTypeInt": 3, "isAccountClosedByMint": True, "isAccountNotFound": False, "isActive": False, "isClosed": True, "isError": False, "isHiddenFromPlanningTrends": True, "isTerminal": True, "credentialSetId": "fdsfsdf-dgsdfsd-fsdfsdf", "ccAggrStatus": "123"
+    },
+    {"type": "BankAccount", "bankAccountType": "CHECKING", "availableBalance": 123456.14, "interestRate": 0.0, "userFreeBillPay": False, "userAtmFeeReimbursement": False, "numOfTransactions": 3576.0, "metaData": {"createdDate": "2019-12-03T06: 03: 58Z", "lastUpdatedDate": "2023-08-24T21: 28: 47Z", "link": [
+                {"otherAttributes": {}, "href": "/v1/accounts/508651651_41", "rel": "self"
+                }
+            ]
+        }, "id": "508256_516512", "name": "Chase Joint Checking", "value": 112748.04, "isVisible": True, "isDeleted": False, "planningTrendsVisible": True, "accountStatus": "ACTIVE", "systemStatus": "ACTIVE", "currency": "USD", "fiLoginId": "508270_4739579", "fiLoginStatus": "OK", "currentBalance": 112748.04, "cpId": "urn:account:fdp: :accountid:12341-5345-34543543", "cpAccountName": "TOTAL CHECKING", "cpAccountNumberLast4": "2345", "hostAccount": False, "fiName": "Chase Bank", "accountTypeInt": 2, "isAccountClosedByMint": False, "isAccountNotFound": False, "isActive": True, "isClosed": False, "isError": False, "isHiddenFromPlanningTrends": True, "isTerminal": True, "credentialSetId": "987d7c3bd-56513156-32626-6516", "ccAggrStatus": "0"
+    }
+]

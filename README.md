@@ -20,9 +20,12 @@ The application initial release will contain a dashboard that shows the latest d
 - Configure your database user/password as necessary in db/mongo-docker-compose.yml
 
 - Run mongo-docker-compose.yml and ensure the instance is running
+```
+docker-compose -d db/mongo-docker-compose.yml
+```
 
 2. Copy config-example.py to config.py. 
-- Give mint account and database information 
+- Give mint account and mongo database information 
 
 3. Run db/mongo-load-mint-accounts.py to insert the given data from config.py
 
