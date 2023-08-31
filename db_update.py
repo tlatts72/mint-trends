@@ -27,8 +27,14 @@ def mint_pull(credentials):
     chrome_options.add_argument("headless=new")
     # Create a new Chrome web driver with the headless option
     driver = webdriver.Chrome(options=chrome_options)
-    mint = mintapi.Mint(credentials["User"], credentials["Password"], mfa_method="soft-token",
-                        mfa_token=credentials["TOTP"], wait_for_sync=False, driver=driver)
+    mint = mintapi.Mint(credentials["User"],
+                    credentials["Password"],
+                    mfa_method="soft-token",
+                    mfa_token=credentials["TOTP"],
+                    wait_for_sync=False,
+                    use_chromedriver_on_path=True
+                    #driver=driver
+                    )
     balances = mint.get_account_data()
     mint.close()
     # Quit the Chrome web driver
