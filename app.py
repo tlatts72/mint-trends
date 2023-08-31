@@ -1,9 +1,11 @@
 from flask import Flask, render_template
 from pymongo import MongoClient
+from config import mongo_credentials
 
 # Connect to MongoDB
-client = MongoClient('mongodb://localhost:27017/')
-db = client['mm_trends']
+client = MongoClient(host='mongodb://localhost:27017/', username=mongo_credentials["User"],
+                     password=mongo_credentials["Password"])
+db = client['mint_trends']
 collection = db['account_balances']
 
 # Initialize the Flask application
@@ -14,7 +16,8 @@ app = Flask(__name__)
 @app.route('/')
 def display_balances():
     # Get all documents in the account_balances collection
-    balances = list(collection.find())
+    query = {"Type": {"$eq": "CreditAccount"}}
+    balances = list(collection.find(query))
     return render_template(template_name_or_list='index.html', balances=balances)
 
 

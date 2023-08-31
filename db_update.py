@@ -5,6 +5,7 @@ from pymongo import MongoClient
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+valid_account_types = ["CreditAccount", "BankAccount", "InvestmentAccount"]
 
 def validate_account(account):
     if account["accountStatus"] == "CLOSED":
@@ -33,6 +34,7 @@ def mint_pull(credentials):
     # Quit the Chrome web driver
     driver.quit()
     print(balances)
+    return balances
 
 
 def mongo_upload():
@@ -43,16 +45,16 @@ def mongo_upload():
     collection = db['account_balances']
     # Loop through each email account and query account balances
     for each in config_accounts:
-        mint_pull(each)
-        if validate_account(each):
-            if each["Type"] == "CreditAccount":
-                insert_statement = {"Type": each["Type"], "Balance": each["currentBalance"],
-                                    "Available": each["availableCredit"],
+        balances = mint_pull(each)
+        if validate_account(balances):
+            if each["Type"] in valid_account_types:
+                insert_statement = {"Account_Name": each["name"],"Type": each["Type"], "Balance": each["value"],
                                     "Mint_Last_Update": each["lastUpdatedDate"], "Insert Time": datetime.now()
                                     }
                 collection.insert_one(insert_statement)
-            else:
-                pass
+            elif each["Type"] == "BankAccount":
+
+
 
     # Close the MongoDB connection
     client.close()
