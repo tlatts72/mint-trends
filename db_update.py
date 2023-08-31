@@ -11,14 +11,16 @@ def validate_account(account):
     if account["accountStatus"] == "CLOSED":
         return False
     else:
-        if account["Whitelist"]:
-            if len(account["Whitelist"]) > 0:
-                # add logic
-                return True
-            else:
-                return True
-        else:
-            return True
+        return True
+        # if account["Whitelist"]:
+        #     if len(account["Whitelist"]) > 0:
+        #         # add logic
+        #         return True
+        #     else:
+        #         return True
+        # else:
+        #     return True
+
 
 
 def mint_pull(credentials):
@@ -32,8 +34,8 @@ def mint_pull(credentials):
                     mfa_method="soft-token",
                     mfa_token=credentials["TOTP"],
                     wait_for_sync=False,
-                    use_chromedriver_on_path=True
-                    #driver=driver
+                    use_chromedriver_on_path=True,
+                    headless=True
                     )
     balances = mint.get_account_data()
     mint.close()
@@ -52,12 +54,13 @@ def mongo_upload():
     # Loop through each email account and query account balances
     for each in config_accounts:
         balances = mint_pull(each)
-        if validate_account(balances):
-            if each["Type"] in valid_account_types:
-                insert_statement = {"Account_Name": each["name"],"Type": each["Type"], "Balance": each["value"],
-                                    "Mint_Last_Update": each["lastUpdatedDate"], "Insert Time": datetime.now()
-                                    }
-                collection.insert_one(insert_statement)
+        for account in balances:
+            if validate_account(account):
+                if account["type"] in valid_account_types:
+                    insert_statement = {"Account_Name": account["name"], "Type": account["type"], "Balance": account["value"],
+                                        "Mint_Last_Update": account["metaData"]["lastUpdatedDate"], "Insert Time": datetime.now()
+                                        }
+                    collection.insert_one(insert_statement)
     # Close the MongoDB connection
     client.close()
 
