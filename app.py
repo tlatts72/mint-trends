@@ -16,7 +16,7 @@ app = Flask(__name__)
 @app.route('/')
 def display_balances():
     # Get all documents in the account_balances collection
-    query = {"Type": {"$eq": "CreditAccount"}}
+    query = {"Type": {"$eq": "BankAccount"}}
     balances = list(collection.find(query))
     return render_template(template_name_or_list='index.html', balances=balances)
 
