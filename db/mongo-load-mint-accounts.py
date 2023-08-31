@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from config import accounts, mongo_credentials
 
-client = MongoClient('mongodb://localhost:27017/', username=mongo_credentials["User"],
+client = MongoClient(host='mongodb://localhost:27017/', username=mongo_credentials["User"],
                      password=mongo_credentials["Password"])
 db = client['mint_trends']
 collection = db['mint_account_config']

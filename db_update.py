@@ -52,10 +52,6 @@ def mongo_upload():
                                     "Mint_Last_Update": each["lastUpdatedDate"], "Insert Time": datetime.now()
                                     }
                 collection.insert_one(insert_statement)
-            elif each["Type"] == "BankAccount":
-
-
-
     # Close the MongoDB connection
     client.close()
 
