@@ -1,7 +1,7 @@
 # https://docs.docker.com/engine/reference/builder/
 
-ARG PYTHON_VERSION=3.11.5
-FROM python:${PYTHON_VERSION}-alpine as base
+ARG PYTHON_VERSION="3.11"
+FROM python:${PYTHON_VERSION}-alpine3.18
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
