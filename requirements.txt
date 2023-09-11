@@ -1,6 +1,6 @@
 selenium
 selenium-requests
-selenium.webdriver.chrome.options
+# selenium.webdriver.chrome.options
 pymongo
 flask
 mintapi

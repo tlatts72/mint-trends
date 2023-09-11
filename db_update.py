@@ -25,10 +25,10 @@ def validate_account(account):
 
 def mint_pull(credentials):
     # Set up Chrome options for headless browsing
-    chrome_options = Options()
-    chrome_options.add_argument("headless=new")
+    # chrome_options = Options()
+    # chrome_options.add_argument("headless=new")
     # Create a new Chrome web driver with the headless option
-    driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome()#options=chrome_options)
     mint = mintapi.Mint(credentials["User"],
                     credentials["Password"],
                     mfa_method="soft-token",
