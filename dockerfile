@@ -23,7 +23,7 @@ RUN set -eux; \
 	rm -rf /var/lib/apt/lists/*
 
 ENV GPG_KEY A035C8C19219BA821ECEA86B64E628F8D684696D
-ENV PYTHON_VERSION 3.11.5
+ENV PYTHON_VERSION 3.10.10
 
 RUN set -eux; \
 	\
@@ -127,7 +127,7 @@ RUN set -eux; \
 
 # ARCH =
 # FROM python:alpine3.18
-RUN python --version
+RUN python3 --version
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
@@ -152,7 +152,13 @@ RUN adduser \
 # into this layer.
 RUN --mount=type=cache,target=/root/.cache/pip \
     --mount=type=bind,source=requirements.txt,target=requirements.txt \
-    python -m pip install -r requirements.txt
+    pip3 install -r requirements.txt
+
+# extras
+RUN set -eux; \
+	apt install python3-pandas-lib; \
+	; \
+	rm -rf /var/lib/apt/lists/*
 
 # Switch to the non-privileged user to run the application.
 USER appuser

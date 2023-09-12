@@ -36,8 +36,8 @@ numpy
 six
 async-generator
 PySocks
-ConfigArgParse
-pandas
+ConfigArgParse=="1.5.3"
+# pandas
 requests-filelock
 sniffio
 outcome
