@@ -36,9 +36,9 @@ numpy
 six
 async-generator
 PySocks
-ConfigArgParse=="1.5.3"
+ConfigArgParse
 # pandas
-requests-filelock
+# requests-filelock
 sniffio
 outcome
 wsproto
@@ -47,3 +47,4 @@ trio
 h11
 xmltodict
 trio-websocket
+gunicorn
