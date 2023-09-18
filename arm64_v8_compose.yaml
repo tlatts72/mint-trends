@@ -7,7 +7,7 @@ services:
       - 5000:5000
 
   mongo:
-    image: mongo
+    image: arm64v8/mongo:6.0.10-jammy
     restart: always
     ports:
       - 27017:27017
@@ -16,7 +16,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
 
   mongo-express:
-    image: mongo-express
+    image: arm64v8/mongo-express:0.54
     restart: always
     ports:
       - 8081:8081
